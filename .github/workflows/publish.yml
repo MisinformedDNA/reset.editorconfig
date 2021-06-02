@@ -33,6 +33,6 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
 
       - name: Publish NuGet package
-        if: github.eventName == 'push' || github.eventName == 'workflow_dispatch'
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: |
           nuget.exe push *.nupkg ${{secrets.NUGET_TOKEN}} -SkipDuplicate -NonInteractive -Source https://api.nuget.org/v3/index.json 
