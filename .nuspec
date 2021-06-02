@@ -1,0 +1,13 @@
+<package minClientVersion="2.5">
+    <metadata>
+        <id>reset.editorconfig</id>
+        <version>0.0.1</version>
+        <description>lksasalk</description>
+        <authors>MisinformedDNA</authors>
+        <developmentDependency>true</developmentDependency>
+    </metadata>
+    <files>
+        <file src="build\**" target="build" />
+        <file src="content\**" target="content" />
+    </files>
+</package>
