@@ -37,8 +37,8 @@ jobs:
       # Runs NuGet pack
       - name: Run a one-line script
         run: |
-          chmod +x nuget.exe  
-          sudo nuget.exe pack -NoDefaultExcludes
+          chmod +x $env:NUGET  
+          nuget.exe pack -NoDefaultExcludes
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
