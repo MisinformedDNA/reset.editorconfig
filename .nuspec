@@ -5,6 +5,7 @@
         <description>Provides default code style rules to override all Visual Studio user-settings.</description>
         <authors>MisinformedDNA</authors>
         <developmentDependency>true</developmentDependency>
+        <license type="expression">MIT</license>
     </metadata>
     <files>
         <file src="build\**" target="build" />
