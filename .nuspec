@@ -1,11 +1,12 @@
 <package>
     <metadata minClientVersion="2.5">
         <id>reset.editorconfig</id>
-        <version>0.1.0</version>
+        <version>0.1.1</version>
         <description>Provides default code style rules to override all Visual Studio user-settings.</description>
         <authors>MisinformedDNA</authors>
         <developmentDependency>true</developmentDependency>
         <license type="expression">MIT</license>
+        <repository type="git" url="https://github.com/MisinformedDNA/reset.editorconfig.git" />
     </metadata>
     <files>
         <file src="build\**" target="build" />
