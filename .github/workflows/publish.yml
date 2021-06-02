@@ -34,15 +34,9 @@ jobs:
           # # Source to scope the NuGet API Key to.
           # nuget-api-key-source: # optional
 
-      - name: GitHub Script
-        uses: actions/github-script@v4.0.2
-        with:
-          # The script to run
-          script: nuget.exe pack -NoDefaultExcludes
-
-      # Runs a single command using the runners shell
+      # Runs NuGet pack
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: nuget.exe pack -NoDefaultExcludes
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
