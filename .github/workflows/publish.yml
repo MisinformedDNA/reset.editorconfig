@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup NuGet.exe for use with actions
+        uses: NuGet/setup-nuget@v1.0.5
+        # with:
+          # # NuGet API Key to configure.
+          # nuget-api-key: # optional
+          # # Source to scope the NuGet API Key to.
+          # nuget-api-key-source: # optional
+
+      - name: Runs NuGet pack
+        run: |
+          chmod +x $NUGET  
+          nuget.exe pack -NoDefaultExcludes

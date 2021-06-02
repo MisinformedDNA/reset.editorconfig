@@ -1,8 +1,8 @@
-<package minClientVersion="2.5">
-    <metadata>
+<package>
+    <metadata minClientVersion="2.5">
         <id>reset.editorconfig</id>
         <version>0.0.1</version>
-        <description>lksasalk</description>
+        <description>Provides default code style rules to override all Visual Studio user-settings.</description>
         <authors>MisinformedDNA</authors>
         <developmentDependency>true</developmentDependency>
     </metadata>
