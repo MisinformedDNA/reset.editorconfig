@@ -27,6 +27,11 @@ jobs:
           chmod +x $NUGET  
           nuget.exe pack -NoDefaultExcludes
 
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
       - name: Publish NuGet package
         if: github.eventName == 'push' || github.eventName == 'workflow_dispatch'
         run: |
