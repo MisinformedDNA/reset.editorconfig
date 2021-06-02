@@ -28,5 +28,6 @@ jobs:
           nuget.exe pack -NoDefaultExcludes
 
       - name: Publish NuGet package
+        if: github.eventName == 'push' || github.eventName == 'workflow_dispatch'
         run: |
           nuget.exe push *.nupkg ${{secrets.NUGET_TOKEN}} -SkipDuplicate -NonInteractive -Source https://api.nuget.org/v3/index.json 

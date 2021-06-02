@@ -4,7 +4,6 @@
         <version>0.1.1</version>
         <description>Provides default code style rules to override all Visual Studio user-settings.</description>
         <authors>MisinformedDNA</authors>
-        <developmentDependency>true</developmentDependency>
         <license type="expression">MIT</license>
         <repository type="git" url="https://github.com/MisinformedDNA/reset.editorconfig.git" />
     </metadata>
