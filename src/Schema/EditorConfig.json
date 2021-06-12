@@ -1,0 +1,1012 @@
+{
+  "severities": [
+    {
+      "name": "none",
+      "description": "Do not show anything to the user when this rule is violated. Code generation features generate code in this style, however. Rules with none severity never appear in the Quick Actions and Refactorings menu. In most cases, this is considered \"disabled\" or \"ignored\"."
+    },
+    {
+      "name": "silent",
+      "description": "Do not show anything to the user when this rule is violated. Code generation features generate code in this style, however. Rules with silent severity participate in cleanup as well as appear in the Quick Actions and Refactorings menu."
+    },
+    {
+      "name": "suggestion",
+      "description": "When this style is not being followed, show it to the user as a suggestion (underlying dots on the first two characters)."
+    },
+    {
+      "name": "warning",
+      "description": "When this style is not being followed, show a compiler warning (green squiggle)."
+    },
+    {
+      "name": "error",
+      "description": "When this style is not being followed, show a compiler error (red squiggle)."
+    }
+  ],
+  "properties": [
+    // Standard properties
+    {
+      "name": "root",
+      "description": "Special property that should be specified at the top of the file outside of any sections. Set to \"true\" to stop .editorconfig files search on current file.",
+      "values": [ true, false, "unset" ],
+      "defaultValue": [ true ],
+      "documentationLink": "https://editorconfig.org/#supported-properties"
+    },
+    {
+      "name": "charset",
+      "description": "File character encoding.",
+      "values": [ "latin1", "utf-8", "utf-8-bom", "utf-16be", "utf-16le", "unset" ],
+      "defaultValue": [ "utf-8-bom" ],
+      "documentationLink": "https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties#charset"
+    },
+    {
+      "name": "end_of_line",
+      "description": "Line ending file format (Unix, DOS, Mac).",
+      "values": [ "lf", "crlf", "cr", "unset" ],
+      "defaultValue": [ "crlf" ],
+      "documentationLink": "https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties#end_of_line"
+    },
+    {
+      "name": "indent_style",
+      "description": "Indentation style.",
+      "values": [ "tab", "space", "unset" ],
+      "defaultValue": [ "unset" ],
+      "documentationLink": "https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties#indent_style"
+    },
+    {
+      "name": "indent_size",
+      "description": "A whole number defining the number of columns used for each indentation level and the width of soft tabs (when supported). When set to tab, the value of tab_width (if specified) will be used.",
+      "values": [ 2, "tab", "unset" ],
+      "defaultValue": [ "unset" ],
+      "documentationLink": "https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties#indent_size"
+    },
+    {
+      "name": "insert_final_newline",
+      "description": "Denotes whether file should end with a newline.",
+      "values": [ true, false, "unset" ],
+      "defaultValue": [ true ],
+      "documentationLink": "https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties#insert_final_newline"
+    },
+    {
+      "name": "tab_width",
+      "description": "A whole number defining the number of columns used to represent a tab character. This defaults to the value of indent_size and doesn't usually need to be specified.",
+      "values": [ 2, 4, "unset" ],
+      "defaultValue": [ "unset" ],
+      "documentationLink": "https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties#tab_width"
+    },
+    {
+      "name": "trim_trailing_whitespace",
+      "description": "Denotes whether to trim whitespace at the end of lines.",
+      "values": [ true, false, "unset" ],
+      "defaultValue": [ true ],
+      "documentationLink": "https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties#trim_trailing_whitespace"
+    },
+    {
+      "name": "max_line_length",
+      "description": "Forces hard line wrapping after the amount of characters specified.",
+      "values": [ 80, "off", "unset" ],
+      "defaultValue": [ "off" ],
+      "documentationLink": "https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties#max_line_length",
+      "unsupported": true
+    },
+    // .NET properties
+    {
+      "name": "dotnet_separate_import_directive_groups",
+      "description": "Separate using directive groups.",
+      "values": [ true, false ],
+      "defaultValue": [ false ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#usings"
+    },
+    {
+      "name": "dotnet_sort_system_directives_first",
+      "description": "Prefer to place 'System' directives first when sorting usings.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#usings"
+    },
+    {
+      "name": "dotnet_style_coalesce_expression",
+      "description": "Prefer null coalescing expression to ternary operator checking (e.g. 'var v = x ?? y;').",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#null_checking"
+    },
+    {
+      "name": "dotnet_style_collection_initializer",
+      "description": "Prefer collections to be initialized using collection initializers when possible (e.g., 'var list = new List<int>{ 1, 2, 3 };').",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_level"
+    },
+    {
+      "name": "dotnet_style_explicit_tuple_names",
+      "description": "Prefer tuple names to ItemX properties (e.g., '(string name, int age) customer = GetCustomer(); var name = customer.name;').",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_level"
+    },
+    {
+      "name": "dotnet_style_null_propagation",
+      "description": "Prefer to use null-conditional operator where possible (e.g., 'var v = o?.ToString();').",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#null_checking"
+    },
+    {
+      "name": "dotnet_style_object_initializer",
+      "description": "Prefer objects to be initialized using object initializers when possible (e.g., 'var c = new Customer(){ Age = 21 };').",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_level"
+    },
+    {
+      "name": "dotnet_style_parentheses_in_arithmetic_binary_operators",
+      "description": "Prefer parentheses to clarify arithmetic operator (*, /, %, +, -, <<, >>, &, ^, |) precedence.",
+      "values": [ "always_for_clarity", "never_if_unnecessary" ],
+      "defaultValue": [ "always_for_clarity" ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#parentheses"
+    },
+    {
+      "name": "dotnet_style_parentheses_in_other_binary_operators",
+      "description": "Prefer parentheses to clarify other binary operator (&&, ||, ??) precedence.",
+      "values": [ "always_for_clarity", "never_if_unnecessary" ],
+      "defaultValue": [ "always_for_clarity" ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#parentheses"
+    },
+    {
+      "name": "dotnet_style_parentheses_in_other_operators",
+      "description": "Prefer parentheses to clarify operator precedence.",
+      "values": [ "always_for_clarity", "never_if_unnecessary" ],
+      "defaultValue": [ "never_if_unnecessary" ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#parentheses"
+    },
+    {
+      "name": "dotnet_style_parentheses_in_relational_binary_operators",
+      "description": "Prefer parentheses to clarify relational operator (>, <, <=, >=, is, as, ==, !=) precedence .",
+      "values": [ "always_for_clarity", "never_if_unnecessary" ],
+      "defaultValue": [ "always_for_clarity" ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#parentheses"
+    },
+    {
+      "name": "dotnet_style_predefined_type_for_locals_parameters_members",
+      "description": "For locals, parameters and type members, prefer types that have a language keyword to represent them (int, double, string, etc.) to use that keyword instead of the type name (Int32, Int64, etc.).",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#language_keywords"
+    },
+    {
+      "name": "dotnet_style_predefined_type_for_member_access",
+      "description": "Prefer the keyword whenever a member-access expression is used on a type with a keyword representation (int, double, string, etc.).",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#language_keywords"
+    },
+    {
+      "name": "dotnet_style_prefer_auto_properties",
+      "description": "Prefer auto-properties over properties with private backing fields.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_level"
+    },
+    {
+      "name": "dotnet_style_prefer_compound_assignment",
+      "description": "This style rule concerns with the use of compound assignments. The option value specifies whether or not they are desired.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0054-ide0074#dotnet_style_prefer_compound_assignment"
+    },
+    {
+      "name": "dotnet_style_prefer_conditional_expression_over_assignment",
+      "description": "Prefer assignments with a ternary conditional over an if-else statement.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_level"
+    },
+    {
+      "name": "dotnet_style_prefer_conditional_expression_over_return",
+      "description": "Prefer return statements to use a ternary conditional over an if-else statement.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_level"
+    },
+    {
+      "name": "dotnet_style_prefer_inferred_anonymous_type_member_names",
+      "description": "Prefer inferred anonymous type member names.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_level"
+    },
+    {
+      "name": "dotnet_style_prefer_inferred_tuple_names",
+      "description": "Prefer inferred tuple element names.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_level"
+    },
+    {
+      "name": "dotnet_style_prefer_is_null_check_over_reference_equality_method",
+      "description": "Prefer using a null check with pattern-matching over object.ReferenceEquals.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_level"
+    },
+    {
+      "name": "dotnet_style_prefer_simplified_boolean_expressions",
+      "description": "This style rule concerns with simplification of conditional expressions that return constant value true or false versus retaining conditional expressions with explicit true or false return values.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0075"
+    },
+    {
+      "name": "dotnet_style_prefer_simplified_interpolation",
+      "description": "This style rule concerns with simplification of interpolated strings to improve code readability. It recommends removal of certain explicit method calls, such as ToString(), when the same method would be implicitly invoked by the compiler if the explicit method call is removed.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0071"
+    },
+    {
+      "name": "dotnet_style_qualification_for_event",
+      "description": "Prefer all non-static events referenced from within non-static methods to be prefaced with 'this.' in C# and 'Me.' in Visual Basic.",
+      "values": [ true, false ],
+      "defaultValue": [ false ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#this_and_me"
+    },
+    {
+      "name": "dotnet_style_qualification_for_field",
+      "description": "Prefer all non-static fields used in non-static methods to be prefaced with 'this.' in C# or 'Me.' in Visual Basic.",
+      "values": [ true, false ],
+      "defaultValue": [ false ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#this_and_me"
+    },
+    {
+      "name": "dotnet_style_qualification_for_method",
+      "description": "Prefer all non-static methods called from within non-static methods to be prefaced with 'this.' in C# and 'Me.' in Visual Basic.",
+      "values": [ true, false ],
+      "defaultValue": [ false ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#this_and_me"
+    },
+    {
+      "name": "dotnet_style_qualification_for_property",
+      "description": "Prefer the all non-static properties used in non-static methods to be prefaced with 'this.' in C# or 'Me.' in Visual Basic.",
+      "values": [ true, false ],
+      "defaultValue": [ false ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#this_and_me"
+    },
+    {
+      "name": "dotnet_style_readonly_field",
+      "description": "Prefer that fields should be marked with 'readonly' in C# or ReadOnly in Visual Basic if they are only ever assigned inline, or inside of a constructor.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#normalize_modifiers"
+    },
+    {
+      "name": "dotnet_style_require_accessibility_modifiers",
+      "description": "Prefer accessibility modifiers to be specified",
+      "values": [ "always", "for_non_interface_members", "never" ],
+      "defaultValue": [ "for_non_interface_members" ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#normalize_modifiers"
+    },
+    // C# properties
+    {
+      "name": "csharp_indent_case_contents",
+      "description": "Indent switch case contents.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#indent"
+    },
+    {
+      "name": "csharp_indent_case_contents_when_block",
+      "description": "Indent switch case contents, when the content is a single block.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#indent"
+    },
+    {
+      "name": "csharp_indent_labels",
+      "description": "Label positioning.",
+      "values": [ "flush_left", "one_less_than_current", "no_change" ],
+      "defaultValue": [ "flush_left" ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#indent"
+    },
+    {
+      "name": "csharp_indent_switch_labels",
+      "description": "Indent switch labels.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#indent"
+    },
+    {
+      "name": "csharp_new_line_before_catch",
+      "description": "Place catch on new line.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#newline"
+    },
+    {
+      "name": "csharp_new_line_before_else",
+      "description": "Place else on new line.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#newline"
+    },
+    {
+      "name": "csharp_new_line_before_finally",
+      "description": "Place finally on new line.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#newline"
+    },
+    {
+      "name": "csharp_new_line_before_members_in_anonymous_types",
+      "description": "Place members in anonymous types on new line.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#newline"
+    },
+    {
+      "name": "csharp_new_line_before_members_in_object_initializers",
+      "description": "Place members in object initializers on new line.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#newline"
+    },
+    {
+      "name": "csharp_new_line_before_open_brace",
+      "description": "Place new line before open brace",
+      "values": [ "none", "all", "accessors", "anonymous_methods", "anonymous_types", "control_blocks", "events", "indexers", "lambdas", "local_functions", "methods", "object_collection", "properties", "types" ],
+      "defaultValue": [ "all" ],
+      "multiple": true,
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#newline"
+    },
+    {
+      "name": "csharp_new_line_between_query_expression_clauses",
+      "description": "Place query expression clauses on new line.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#newline"
+    },
+    {
+      "name": "csharp_preferred_modifier_order",
+      "description": "Prefer the specified ordering of modifiers.",
+      "values": [ "public", "private", "protected", "internal", "static", "extern", "new", "virtual", "abstract", "sealed", "override", "readonly", "unsafe", "volatile", "async" ],
+      "defaultValue": [ "public", "private", "protected", "internal", "static", "extern", "new", "virtual", "abstract", "sealed", "override", "readonly", "unsafe", "volatile", "async" ],
+      "multiple": true,
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#normalize_modifiers"
+    },
+    {
+      "name": "csharp_prefer_braces",
+      "description": "Prefer braces when possible.",
+      "values": [ true, false, "when_multiline" ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#code_block"
+    },
+    {
+      "name": "csharp_prefer_simple_default_expression",
+      "description": "Prefer default over default(T).",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_level_csharp"
+    },
+    {
+      "name": "csharp_prefer_simple_using_statement",
+      "description": "This style rule concerns the use of using statements without curly braces. This alternative syntax was introduced in C# 8.0.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0063"
+    },
+    {
+      "name": "csharp_style_implicit_object_creation_when_type_is_apparent",
+      "description": "Prefer target-typed new expressions when created type is apparent.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0090"
+    },
+    {
+      "name": "csharp_prefer_static_local_function",
+      "description": "Prefer local functions to be marked static.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0062"
+    },
+    {
+      "name": "csharp_preserve_single_line_blocks",
+      "description": "Leave block on single line.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#wrapping"
+    },
+    {
+      "name": "csharp_preserve_single_line_statements",
+      "description": "Leave statements and member declarations on the same line.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#wrapping"
+    },
+    {
+      "name": "csharp_space_after_cast",
+      "description": "Require a space between a cast and the value.",
+      "values": [ true, false ],
+      "defaultValue": [ false ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#spacing"
+    },
+    {
+      "name": "csharp_space_after_colon_in_inheritance_clause",
+      "description": "Require a space after the colon for bases or interfaces in a type declaration.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#spacing"
+    },
+    {
+      "name": "csharp_space_after_keywords_in_control_flow_statements",
+      "description": "Space after keywords in control flow statements.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#spacing"
+    },
+    {
+      "name": "csharp_space_around_binary_operators",
+      "description": "Spaces around binary operators.",
+      "values": [ "none", "before_and_after", "ignore" ],
+      "defaultValue": [ "before_and_after" ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#spacing"
+    },
+    {
+      "name": "csharp_space_before_colon_in_inheritance_clause",
+      "description": "Require a space before the colon for bases or interfaces in a type declaration.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#spacing"
+    },
+    {
+      "name": "csharp_space_between_method_call_empty_parameter_list_parentheses",
+      "description": "Require a space within empty argument list parentheses.",
+      "values": [ true, false ],
+      "defaultValue": [ false ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#spacing"
+    },
+    {
+      "name": "csharp_space_between_method_call_name_and_opening_parenthesis",
+      "description": "Require a space between method call name and opening parenthesis.",
+      "values": [ true, false ],
+      "defaultValue": [ false ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#spacing"
+    },
+    {
+      "name": "csharp_space_between_method_call_parameter_list_parentheses",
+      "description": "Space within parentheses for method call argument list.",
+      "values": [ true, false ],
+      "defaultValue": [ false ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#spacing"
+    },
+    {
+      "name": "csharp_space_between_method_declaration_empty_parameter_list_parentheses",
+      "description": "Require a space within empty parameter list parentheses for a method declaration",
+      "values": [ true, false ],
+      "defaultValue": [ false ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#spacing"
+    },
+    {
+      "name": "csharp_space_between_method_declaration_parameter_list_parentheses",
+      "description": "Space between method declaration argument-list parentheses.",
+      "values": [ true, false ],
+      "defaultValue": [ false ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#spacing"
+    },
+    {
+      "name": "csharp_space_between_parentheses",
+      "description": "Space within parentheses for other options.",
+      "values": [ "expressions", "type_casts", "control_flow_statements", false ],
+      "defaultValue": [ false ],
+      "multiple": true,
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#spacing"
+    },
+    {
+      "name": "csharp_style_conditional_delegate_call",
+      "description": "Prefer to use conditional coalescing operation (?.) when invoking a lambda instead of performing a null check (e.g., 'func?.Invoke(args);').",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#null_checking_csharp"
+    },
+    {
+      "name": "csharp_style_deconstructed_variable_declaration",
+      "description": "Prefer deconstructed variable declaration.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_level_csharp"
+    },
+    {
+      "name": "csharp_style_expression_bodied_accessors",
+      "description": "Prefer expression-bodied members for accessors (e.g., 'public int Age { get => _age; set => _age = value; }').",
+      "values": [ true, false, "when_on_single_line" ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_bodied_members"
+    },
+    {
+      "name": "csharp_style_expression_bodied_constructors",
+      "description": "Prefer expression-bodied members for constructors (e.g., 'public Customer(int age) => Age = age;').",
+      "values": [ true, false, "when_on_single_line" ],
+      "defaultValue": [ false ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_bodied_members"
+    },
+    {
+      "name": "csharp_style_expression_bodied_indexers",
+      "description": "Prefer expression-bodied members for indexers (e.g., 'public T this[int i] => _value[i];').",
+      "values": [ true, false, "when_on_single_line" ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_bodied_members"
+    },
+    {
+      "name": "csharp_style_expression_bodied_lambdas",
+      "description": "Prefer expression-bodied members for indexers (e.g., 'public T this[int i] => _value[i];').",
+      "values": [ true, false, "when_on_single_line" ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0053"
+    },
+    {
+      "name": "csharp_style_expression_bodied_local_functions",
+      "description": "Prefer expression-bodied members for indexers (e.g., 'public T this[int i] => _value[i];').",
+      "values": [ true, false, "when_on_single_line" ],
+      "defaultValue": [ false ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0061"
+    },
+    {
+      "name": "csharp_style_expression_bodied_methods",
+      "description": "Prefer expression-bodied members for methods (e.g., 'public int GetAge() => this.Age;').",
+      "values": [ true, false, "when_on_single_line" ],
+      "defaultValue": [ false ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_bodied_members"
+    },
+    {
+      "name": "csharp_style_expression_bodied_operators",
+      "description": "Prefer expression-bodied members for operators.",
+      "values": [ true, false, "when_on_single_line" ],
+      "defaultValue": [ false ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_bodied_members"
+    },
+    {
+      "name": "csharp_style_expression_bodied_properties",
+      "description": "Prefer expression-bodied members for properties (e.g., 'public int Age => _age;').",
+      "values": [ true, false, "when_on_single_line" ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_bodied_members"
+    },
+    {
+      "name": "csharp_style_prefer_index_operator",
+      "description": "This style rule concern the use of the index-from-end operator, which is available in C# 8.0 and later.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0056"
+    },
+    {
+      "name": "csharp_style_prefer_not_pattern",
+      "description": "This style rule concerns the use of C# 9.0 'not' pattern, when possible.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0083"
+    },
+    {
+      "name": "csharp_style_prefer_pattern_matching",
+      "description": "This style rule concerns the use of C# 9.0 pattern matching constructs, when possible.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0078"
+    },
+    {
+      "name": "csharp_style_prefer_switch_expression",
+      "description": "This style rule concerns the use of switch expressions versus switch statements.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0066"
+    },
+    {
+      "name": "csharp_style_inlined_variable_declaration",
+      "description": "Prefer 'out' variables to be declared inline when possible (e.g., 'if (int.TryParse(value out int i) {...}').",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#inlined_variable_declarations"
+    },
+    {
+      "name": "csharp_style_pattern_local_over_anonymous_function",
+      "description": "Prefer local functions over anonymous functions.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_level_csharp"
+    },
+    {
+      "name": "csharp_style_pattern_matching_over_as_with_null_check",
+      "description": "Prefer pattern matching instead of 'as' expressions with null-checks to determine if something is of a particular type (e.g., 'if (o is string s) {...}').",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#pattern_matching"
+    },
+    {
+      "name": "csharp_style_pattern_matching_over_is_with_cast_check",
+      "description": "Prefer pattern matching instead of 'is' expressions with type casts (e.g., 'if (o is int i) {...}').",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#pattern_matching"
+    },
+    {
+      "name": "csharp_style_prefer_range_operator",
+      "description": "This style rule concern the use of the range operator, which is available in C# 8.0 and later.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#pattern_matching"
+    },
+    {
+      "name": "csharp_style_throw_expression",
+      "description": "Prefer to use 'throw' expressions instead of 'throw' statements.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0057"
+    },
+    {
+      "name": "csharp_style_unused_value_assignment_preference",
+      "description": "This rule flags unnecessary value assignments.",
+      "values": [ "discard_variable", "unused_local_variable" ],
+      "defaultValue": [ "discard_variable" ],
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0057"
+    },
+    {
+      "name": "csharp_style_var_elsewhere",
+      "description": "Prefer 'var' in all cases unless overridden by another code style rule.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#implicit-and-explicit-types"
+    },
+    {
+      "name": "csharp_style_var_for_built_in_types",
+      "description": "Prefer 'var' is used for built-in system types such as 'int'.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#implicit-and-explicit-types"
+    },
+    {
+      "name": "csharp_style_var_when_type_is_apparent",
+      "description": "Prefer 'var' when the type is already mentioned on the right-hand side of a declaration expression.",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#implicit-and-explicit-types"
+    },
+    {
+      "name": "csharp_style_unused_value_expression_statement_preference",
+      "description": "",
+      "values": [ "discard_variable", "unused_local_variable" ],
+      "defaultValue": [ "discard_variable" ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0058"
+    },
+    {
+      "name": "csharp_using_directive_placement",
+      "description": "Prefer 'using' directives to be inside or outside a namespace.",
+      "values": [ "inside_namespace", "outside_namespace" ],
+      "defaultValue": [ "outside_namespace" ],
+      "severity": true,
+      "defaultSeverity": "silent",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-formatting-conventions#c-formatting-settings"
+    },
+    // VB properties
+    {
+      "name": "visual_basic_preferred_modifier_order",
+      "description": "Prefer the specified ordering of modifiers.",
+      "values": [ "Partial", "Default", "Private", "Protected", "Public", "Friend", "NotOverridable", "Overridable", "MustOverride", "Overloads", "Overrides", "MustInherit", "NotInheritable", "Static", "Shared", "Shadows", "ReadOnly", "WriteOnly", "Dim", "Const", "WithEvents", "Widening", "Narrowing", "Custom", "Async" ],
+      "defaultValue": [ "Partial", "Default", "Private", "Protected", "Public", "Friend", "NotOverridable", "Overridable", "MustOverride", "Overloads", "Overrides", "MustInherit", "NotInheritable", "Static", "Shared", "Shadows", "ReadOnly", "WriteOnly", "Dim", "Const", "WithEvents", "Widening", "Narrowing", "Custom", "Async:suggestion" ],
+      "multiple": true,
+      "severity": true,
+      "defaultSeverity": "suggestion",
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#normalize_modifiers"
+    },
+    // Naming properties
+    {
+      "name": "dotnet_naming_rule.<naming_rule_title>.severity",
+      "description": "Naming rule severity.",
+      "values": [ "none", "silent", "suggestion", "warning", "error" ],
+      "defaultValue": [ "suggestion" ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-naming-conventions"
+    },
+    {
+      "name": "dotnet_naming_rule.<naming_rule_title>.symbols",
+      "description": "Naming rule symbols.",
+      "values": [ "<identifier>" ],
+      "defaultValue": [ "<identifier" ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-naming-conventions"
+    },
+    {
+      "name": "dotnet_naming_rule.<naming_rule_title>.style",
+      "description": "Naming rule style.",
+      "values": [ "<identifier>" ],
+      "defaultValue": [ "<identifier" ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-naming-conventions"
+    },
+    {
+      "name": "dotnet_naming_symbols.<naming_symbols_title>.applicable_kinds",
+      "description": "Application kinds. Must match any.",
+      "values": [ "*", "namespace", "class", "struct", "interface", "enum", "property", "method", "field", "event", "delegate", "parameter", "type_parameter", "local", "local_function" ],
+      "defaultValue": [ "*" ],
+      "multiple": true,
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-naming-conventions"
+    },
+    {
+      "name": "dotnet_naming_symbols.<naming_symbols_title>.applicable_accessibilities",
+      "description": "Applicable accessibilities. Must match any",
+      "values": [ "*", "public", "internal", "friend", "private", "protected", "protected_internal", "protected_friend", "private_protected", "local" ],
+      "defaultValue": [ "*" ],
+      "multiple": true,
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-naming-conventions"
+    },
+    {
+      "name": "dotnet_naming_symbols.<naming_symbols_title>.required_modifiers",
+      "description": "Required modifiers. Must match all.",
+      "values": [ "*", "abstract", "must_inherit", "async", "const", "readonly", "static", "shared" ],
+      "defaultValue": [ "*" ],
+      "multiple": true,
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-naming-conventions"
+    },
+    {
+      "name": "dotnet_naming_style.<naming_style_title>.required_prefix",
+      "description": "Required prefix.",
+      "values": [ "<prefix>" ],
+      "defaultValue": [ "<prefix>" ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-naming-conventions"
+    },
+    {
+      "name": "dotnet_naming_style.<naming_style_title>.required_suffix",
+      "description": "Required suffix.",
+      "values": [ "<suffix>" ],
+      "defaultValue": [ "<suffix>" ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-naming-conventions"
+    },
+    {
+      "name": "dotnet_naming_style.<naming_style_title>.word_separator",
+      "description": "Word separator.",
+      "values": [ "<word-separator>" ],
+      "defaultValue": [ "<word-separator" ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-naming-conventions"
+    },
+    {
+      "name": "dotnet_naming_style.<naming_style_title>.capitalization",
+      "description": "Capitalization.",
+      "values": [ "pascal_case", "camel_case", "first_word_upper", "all_upper", "all_lower" ],
+      "defaultValue": [ "pascal_case" ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-naming-conventions"
+    },
+    // Diagnostics properties
+    {
+      "name": "dotnet_diagnostic.<rule_id>.severity",
+      "description": "Diagnostic rule configuration",
+      "values": [ "error", "warning", "suggestion", "silent", "refactoring", "none" ],
+      "defaultValue": [ "unset" ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/code-quality/use-roslyn-analyzers?view=vs-2019#set-rule-severity-in-an-editorconfig-file"
+    },
+    {
+      "name": "dotnet_analyzer_diagnostic.severity",
+      "description": "Default diagnostic severity configuration",
+      "values": [ "error", "warning", "suggestion", "silent", "refactoring", "none" ],
+      "defaultValue": [ "unset" ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/code-quality/use-roslyn-analyzers?view=vs-2019#set-rule-severity-of-multiple-analyzer-rules-at-once-in-an-editorconfig-file"
+    },
+    {
+      "name": "dotnet_analyzer_diagnostic.category-<category>.severity",
+      "description": "Diagnostic severity configuration by category",
+      "values": [ "error", "warning", "suggestion", "silent", "refactoring", "none" ],
+      "defaultValue": [ "unset" ],
+      "documentationLink": "https://docs.microsoft.com/en-us/visualstudio/code-quality/use-roslyn-analyzers?view=vs-2019#set-rule-severity-of-multiple-analyzer-rules-at-once-in-an-editorconfig-file"
+    },
+    {
+      "name": "dotnet_remove_unnecessary_suppression_exclusions",
+      "description": "Diagnostic severity configuration by category",
+      "values": [ "<rule IDs or categories>" ],
+      "defaultValue": [ "<rule IDs or categories>" ],
+      "documentationLink": "https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0079"
+    },
+    {
+      "name": "dotnet_code_quality_unused_parameters",
+      "description": "This rule concerns with flagging unused parameters. The option value determines if unused parameters should be flagged only for non-public methods or for both public and non-public methods.",
+      "values": [ "all", "non_public" ],
+      "defaultValue": [ "all" ],
+      "documentationLink": "https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0060"
+    },
+
+    // Undocumented properties
+    {
+      "name": "csharp_indent_block_contents",
+      "description": "Undocumented property",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "hidden": true
+    },
+    {
+      "name": "csharp_indent_braces",
+      "description": "Undocumented property",
+      "values": [ true, false ],
+      "defaultValue": [ false ],
+      "hidden": true
+    },
+    {
+      "name": "csharp_space_after_comma",
+      "description": "Undocumented property",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "hidden": true
+    },
+    {
+      "name": "csharp_space_after_dot",
+      "description": "Undocumented property",
+      "values": [ true, false ],
+      "defaultValue": [ false ],
+      "hidden": true
+    },
+    {
+      "name": "csharp_space_after_semicolon_in_for_statement",
+      "description": "Undocumented property",
+      "values": [ true, false ],
+      "defaultValue": [ true ],
+      "hidden": true
+    },
+    {
+      "name": "csharp_space_around_declaration_statements",
+      "description": "Undocumented property",
+      "values": [ "ignore", "false" ],
+      "defaultValue": [ false ],
+      "hidden": true
+    },
+    {
+      "name": "csharp_space_before_comma",
+      "description": "Undocumented property",
+      "values": [ true, false ],
+      "defaultValue": [ false ],
+      "hidden": true
+    },
+    {
+      "name": "csharp_space_before_dot",
+      "description": "Undocumented property",
+      "values": [ true, false ],
+      "defaultValue": [ false ],
+      "hidden": true
+    },
+    {
+      "name": "csharp_space_before_open_square_brackets",
+      "description": "Undocumented property",
+      "values": [ true, false ],
+      "defaultValue": [ false ],
+      "hidden": true
+    },
+    {
+      "name": "csharp_space_before_semicolon_in_for_statement",
+      "description": "Undocumented property",
+      "values": [ true, false ],
+      "defaultValue": [ false ],
+      "hidden": true
+    },
+    {
+      "name": "csharp_space_between_empty_square_brackets",
+      "description": "Undocumented property",
+      "values": [ true, false ],
+      "defaultValue": [ false ],
+      "hidden": true
+    },
+    {
+      "name": "csharp_space_between_method_declaration_name_and_open_parenthesis",
+      "description": "Undocumented property",
+      "values": [ true, false ],
+      "defaultValue": [ false ],
+      "hidden": true
+    },
+    {
+      "name": "csharp_space_between_square_brackets",
+      "description": "Undocumented property",
+      "values": [ true, false ],
+      "defaultValue": [ false ],
+      "hidden": true
+    }
+  ]
+}

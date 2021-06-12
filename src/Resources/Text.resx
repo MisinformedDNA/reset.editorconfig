@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="EditorConfigFileAlreadyExist" xml:space="preserve">
+    <value>An .editorconfig file already exist in this location</value>
+  </data>
+  <data name="FormatDocument" xml:space="preserve">
+    <value>Format document</value>
+  </data>
+  <data name="InvalidValue" xml:space="preserve">
+    <value>"{0}" is not a valid value for the "{1}" property</value>
+  </data>
+  <data name="NamingRuleReordered" xml:space="preserve">
+    <value>Naming rule '{0}' was reordered relative to overlapping rule '{1}'. Elements which match both will be validated against rule '{0}' starting with Visual Studio 2019 version 16.3.</value>
+  </data>
+  <data name="NotSupportedByVS" xml:space="preserve">
+    <value>Not supported by Visual Studio</value>
+  </data>
+  <data name="ValidateOnlyRootAllowed" xml:space="preserve">
+    <value>Only "root" is allowed outside a section.</value>
+  </data>
+  <data name="ValidateUnknownKeyword" xml:space="preserve">
+    <value>The keyword "{0}" is unknown.</value>
+  </data>
+  <data name="ValidationDuplicateProperty" xml:space="preserve">
+    <value>The property is overridden by a property by the same name in this section.</value>
+  </data>
+  <data name="ValidationDuplicateSection" xml:space="preserve">
+    <value>A section with the value "{0}" has already been defined.</value>
+  </data>
+  <data name="ValidationIndentSizeUnneeded" xml:space="preserve">
+    <value>When "indent_style" is set to tab, it may be desirable to leave indent_size unspecified so readers may view the file using their preferred indentation width.</value>
+  </data>
+  <data name="ValidationInvalidEndChar" xml:space="preserve">
+    <value>Values must not end with a {0}.</value>
+  </data>
+  <data name="ValidationInvalidSeverity" xml:space="preserve">
+    <value>"{0}" is not a valid value for severity.</value>
+  </data>
+  <data name="ValidationMissingPropertyValue" xml:space="preserve">
+    <value>A value must be specified.</value>
+  </data>
+  <data name="ValidationMissingSeverity" xml:space="preserve">
+    <value>A severity must be specified. Example: true:warning.</value>
+  </data>
+  <data name="ValidationNoMatch" xml:space="preserve">
+    <value>The globbing pattern "{0}" doesn't match any files. Consider removing the section.</value>
+  </data>
+  <data name="ValidationParentPropertyDuplicate" xml:space="preserve">
+    <value>This property is a duplicate of one in
+"{0}" and can be safely removed.</value>
+  </data>
+  <data name="ValidationRootInSection" xml:space="preserve">
+    <value>"Root" is only allowed in the beginning of the document.</value>
+  </data>
+  <data name="ValidationSectionSyntaxError" xml:space="preserve">
+    <value>Sections must be surrounded by "[" and "]".</value>
+  </data>
+  <data name="ValidationSeverityNotApplicable" xml:space="preserve">
+    <value>The "{0}" property does not support a severity suffix.</value>
+  </data>
+  <data name="ValidationSpaceInSection" xml:space="preserve">
+    <value>Spaces in globbing patterns are allowed, but are often the result of a typo. Make sure the globbing pattern is accurate.</value>
+  </data>
+  <data name="ValidationTabWidthUnneeded" xml:space="preserve">
+    <value>There is no need to specify "tab_width" unless it differs from the value of "indent_size".</value>
+  </data>
+  <data name="ValidationUnknownElement" xml:space="preserve">
+    <value>Syntax error. Element not valid at current location.</value>
+  </data>
+  <data name="ValidationUnknownStyle" xml:space="preserve">
+    <value>The style "{0}" is unknown. A capitalization style must always be specified.</value>
+  </data>
+  <data name="ValidationUnusedStyle" xml:space="preserve">
+    <value>The style "{0}" is never used. Consider removing it.</value>
+  </data>
+  <data name="ValueUnset" xml:space="preserve">
+    <value>For any standard property, a value of "unset" is to remove the effect of that property, even if it has been set before.</value>
+  </data>
+</root>
