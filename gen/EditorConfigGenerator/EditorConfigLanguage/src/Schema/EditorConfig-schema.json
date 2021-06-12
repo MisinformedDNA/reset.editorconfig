@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "type": "object",
+
+  "definitions": {
+    "keyword": {
+      "type": "object",
+      "required": [ "name", "description", "values", "defaultValue" ],
+      "additionalProperties": false,
+
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "hidden": {
+          "enum": [ true ]
+        },
+        "multiple": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "boolean"
+        },
+        "unsupported": {
+          "enum": [ true ]
+        },
+        "values": {
+          "type": "array"
+        },
+        "defaultValue": {
+          "type": "array"
+        },
+        "defaultSeverity": {
+          "enum": [ "none", "silent", "suggestion", "warning", "error" ]
+        },
+        "documentationLink": {
+            "type":  "string"
+        }
+      }
+    },
+    "severities": {
+      "type": "object",
+      "required": ["name", "description"],
+      "additionalProperties": false,
+
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    }
+  },
+
+  "properties": {
+    "properties": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/keyword"
+      }
+    },
+    "severities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/severities"
+      }
+    }
+  }
+}
