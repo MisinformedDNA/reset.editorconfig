@@ -1,7 +1,7 @@
 <package>
     <metadata minClientVersion="2.5">
         <id>reset.editorconfig</id>
-        <version>0.1.1</version>
+        <version>0.2.0</version>
         <description>Provides default code style rules to override all Visual Studio user-settings.</description>
         <authors>MisinformedDNA</authors>
         <license type="expression">MIT</license>
