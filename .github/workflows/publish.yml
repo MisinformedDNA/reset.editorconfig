@@ -26,6 +26,11 @@ jobs:
         run: |
           chmod +x $NUGET  
           nuget.exe pack -NoDefaultExcludes
+          
+      - name: Upload NuGet package
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          path: '*.nupkg'
 
       - name: Publish NuGet package
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
